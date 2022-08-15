@@ -63,23 +63,23 @@ async def msg(ctx):
 #Delete the blacklist message and warn the user to refrain them from sending using such words again.
 @bot.event
 async def on_message(message):
-    # if prefix in message.content:
-    #     print("This is a command")
-    #     await bot.process_commands(message)
-    # else:
-    with open("words_blacklist.txt") as bf:
-        blacklist = [word.strip().lower() for word in bf.readlines()]
-    bf.close()
+    if prefix in message.content:
+        print("This is a command")
+        await bot.process_commands(message)
+    else:
+        with open("words_blacklist.txt") as bf:
+            blacklist = [word.strip().lower() for word in bf.readlines()]
+        bf.close()
 
-    channel = message.channel
-    for word in blacklist:
-        if word in message.content:
-            bot_message = await channel.send("Message contains  a banned word!")
-            await message.delete()
-            await asyncio.sleep(3)
-            await bot_message.delete()
+        channel = message.channel
+        for word in blacklist:
+            if word in message.content:
+                bot_message = await channel.send("Message contains  a banned word!")
+                await message.delete()
+                await asyncio.sleep(3)
+                await bot_message.delete()
                 
-    await bot.process_commands(message)
+        await bot.process_commands(message)
 
 #-----------------------------------------Moderation---------------------------------------------------------------#
 
