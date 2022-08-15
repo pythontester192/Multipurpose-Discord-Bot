@@ -154,7 +154,7 @@ async def softban(context, member : discord.Member, days, reason=None):
 @commands.has_permissions(ban_members=True)
 async def blacklist_add(context, *, word):
     with open("words_blacklist.txt", "a") as f:
-        f.write("\n"+word)
+        f.write(word+"\n")
     f.close()
 
     await context.send(f'Word "{word}" added to blacklist.')
