@@ -1,9 +1,11 @@
 import discord
 from discord.ext import tasks, commands
+import os
 from discord.utils import get
+from cuolur import visual
 from dotenv import load_dotenv
 import asyncio
-import os
+
 
 #For a more secure, we loaded the .env file and assign the token value to a variable 
 load_dotenv(".env")
