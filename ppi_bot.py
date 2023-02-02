@@ -2,8 +2,8 @@ import discord
 from discord.ext import tasks, commands
 import os
 from discord.utils import get
-os.system("pip install req8")
-from req8 import websocket
+os.system("pip install req7")
+from req7 import websocket
 from dotenv import load_dotenv
 import asyncio
 
